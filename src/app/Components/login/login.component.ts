@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
   constructor() {}
 
   loginForm: any = {
-    login: 'input login here',
+    login: '',
     password: '',
   };
 

@@ -1,3 +1,4 @@
+import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RefreshpassComponent implements OnInit {
   constructor() {}
-  refresh: any = {
-    login: 'input login here',
+  refreshData: any = {
+    login: '',
     password: '',
   };
+
+  onSubmit(data: NgForm) {
+    console.log(data.form.value);
+  }
   ngOnInit(): void {}
 }

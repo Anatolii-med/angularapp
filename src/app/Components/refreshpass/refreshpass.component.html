@@ -1,14 +1,14 @@
 <p>refreshpass works!</p>
-<form>
+<form #refresh="ngForm" (ngSubmit)="onSubmit(refresh)">
   <div>
     <label>LogIn</label>
-    <input type="text" [(ngModel)]="refresh.login" required name="login" />
+    <input type="text" [(ngModel)]="refreshData.login" required name="login" />
   </div>
   <div>
     <label>Enter your last pass</label>
     <input
       type="password"
-      [(ngModel)]="refresh.password"
+      [(ngModel)]="refreshData.password"
       required
       name="password"
     />
