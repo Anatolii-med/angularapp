@@ -1,5 +1,5 @@
 <p>login works!</p>
-<form>
+<form #login="ngForm" novalidate (ngSubmit)="onSubmit(login)">
   <div>
     <label>LogIn</label>
     <input type="text" [(ngModel)]="loginForm.login" required name="login" />
@@ -14,5 +14,5 @@
     />
   </div>
 
-  <button>LogIn</button>
+  <button type="submit">LogIn</button>
 </form>
