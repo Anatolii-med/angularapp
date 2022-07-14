@@ -1,0 +1,18 @@
+<p>refreshpass works!</p>
+<form>
+  <div>
+    <label>LogIn</label>
+    <input type="text" [(ngModel)]="refresh.login" required name="login" />
+  </div>
+  <div>
+    <label>Enter your last pass</label>
+    <input
+      type="password"
+      [(ngModel)]="refresh.password"
+      required
+      name="password"
+    />
+  </div>
+
+  <button>refresh</button>
+</form>

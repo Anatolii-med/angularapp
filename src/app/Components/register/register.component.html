@@ -1,0 +1,22 @@
+<p>register works!</p>
+<form>
+  <div>
+    <label>email</label>
+    <input type="email" [(ngModel)]="register.email" required name="email" />
+  </div>
+  <div>
+    <label>LogIn</label>
+    <input type="text" [(ngModel)]="register.login" required name="login" />
+  </div>
+  <div>
+    <label>Pass</label>
+    <input
+      type="password"
+      [(ngModel)]="register.password"
+      required
+      name="password"
+    />
+  </div>
+
+  <button>Register</button>
+</form>
