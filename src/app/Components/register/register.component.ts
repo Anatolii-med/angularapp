@@ -1,27 +1,23 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ShareService } from '../../share.service';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss'],
+    selector: 'app-register',
+    templateUrl: './register.component.html',
+    styleUrls: ['./register.component.scss'],
 })
-export class RegisterComponent implements OnInit {
-  constructor() {}
+export class RegisterComponent {
+    registerForm: any = {
+        email: '',
+        login: '',
+        password: '',
+    };
+    constructor(private share: ShareService) {
+        this.share.onClick.subscribe((resp) => (this.registerForm = resp));
+    }
 
-  registerForm: any = {
-    email: '',
-    login: '',
-    password: '',
-  };
-
-  @Output() userData = this.registerForm;
-
-  onSubmit(registerData: NgForm) {
-    console.log(registerData.form.value);
-    this.userData = registerData.form.value;
-    console.log(this.userData);
-  }
-
-  ngOnInit(): void {}
+    onSubmit(registerData: NgForm) {
+        this.share.doClick(registerData);
+    }
 }

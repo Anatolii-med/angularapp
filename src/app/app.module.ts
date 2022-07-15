@@ -9,7 +9,7 @@ import { LoginComponent } from './Components/login/login.component';
 import { RefreshpassComponent } from './Components/refreshpass/refreshpass.component';
 import { HomeComponent } from './Components/homepage/homepage.component';
 import { TestcomponentComponent } from './Components/testcomponent/testcomponent.component';
-
+import { ShareService } from './share.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +20,7 @@ import { TestcomponentComponent } from './Components/testcomponent/testcomponent
     TestcomponentComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
-  providers: [],
+  providers: [ShareService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
