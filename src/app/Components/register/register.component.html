@@ -1,27 +1,45 @@
-<p>register works!</p>
-<form #register="ngForm" (ngSubmit)="onSubmit(register)">
+<p>register</p>
+<form
+  #register="ngForm"
+  (ngSubmit)="onSubmit(register)"
+  class="ng-pristine ng-untouched ng-valid"
+  novalidate=""
+>
   <div>
     <label>email</label>
     <input
+      class="form-control"
+      autocomplete="off"
       type="email"
       [(ngModel)]="registerForm.email"
       required
       name="email"
+      email
     />
   </div>
   <div>
-    <label>LogIn</label>
-    <input type="text" [(ngModel)]="registerForm.login" required name="login" />
+    <label>username</label>
+    <input
+      class="form-control"
+      autocomplete="off"
+      type="text"
+      [(ngModel)]="registerForm.login"
+      required
+      name="login"
+    />
   </div>
   <div>
     <label>Pass</label>
     <input
+      class="form-control"
+      autocomplete="off"
       type="password"
       [(ngModel)]="registerForm.password"
       required
       name="password"
+      minlength="8"
     />
   </div>
 
-  <button type="submit">Register</button>
+  <button type="submit" [disabled]="register.invalid">Register</button>
 </form>

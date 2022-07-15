@@ -1,12 +1,26 @@
-<p>login works!</p>
-<form #login="ngForm" novalidate (ngSubmit)="onSubmit(login)">
+<p>login</p>
+<form
+  #login="ngForm"
+  class="ng-pristine ng-untouched ng-valid"
+  novalidate=""
+  (ngSubmit)="onSubmit(login)"
+>
   <div>
-    <label>LogIn</label>
-    <input type="text" [(ngModel)]="loginForm.login" required name="login" />
+    <label>email</label>
+    <input
+      class="form-control"
+      autocomplete="off"
+      type="email"
+      [(ngModel)]="loginForm.email"
+      required
+      name="email"
+      email
+    />
   </div>
   <div>
     <label>Pass</label>
     <input
+      autocomplete="off"
       type="password"
       [(ngModel)]="loginForm.password"
       required

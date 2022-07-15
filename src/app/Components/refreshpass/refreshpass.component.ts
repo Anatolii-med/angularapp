@@ -9,8 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class RefreshpassComponent implements OnInit {
   constructor() {}
   refreshData: any = {
-    login: '',
-    password: '',
+    email: '',
   };
 
   onSubmit(data: NgForm) {

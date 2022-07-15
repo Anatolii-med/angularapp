@@ -1,3 +1,4 @@
+import { TestcomponentComponent } from './Components/testcomponent/testcomponent.component';
 import { HomeComponent } from './Components/homepage/homepage.component';
 import { RefreshpassComponent } from './Components/refreshpass/refreshpass.component';
 import { LoginComponent } from './Components/login/login.component';
@@ -14,6 +15,7 @@ const routes: Routes = [];
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
       { path: 'refreshpass', component: RefreshpassComponent },
+      { path: 'test', component: TestcomponentComponent },
     ]),
   ],
   exports: [RouterModule],
