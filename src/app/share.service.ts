@@ -10,9 +10,8 @@ export class ShareService {
     };
     userData = this.registerForm;
     public doClick(registerData: NgForm) {
-        console.log(registerData.form.value);
-        this.userData = registerData.form.value;
-        console.log(this.userData);
+        this.data = registerData.form.value;
         this.onClick.emit(this.data);
+        console.log('ShareService ~ doClick ~ this.data', this.data);
     }
 }
