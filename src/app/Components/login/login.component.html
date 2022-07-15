@@ -1,33 +1,33 @@
 <p>login</p>
 <form
-  #login="ngForm"
-  class="ng-pristine ng-untouched ng-valid"
-  novalidate=""
-  (ngSubmit)="onSubmit(login)"
+    #login="ngForm"
+    class="ng-pristine ng-untouched ng-valid"
+    novalidate=""
+    (ngSubmit)="onSubmit(login)"
 >
-  <div>
-    <label>email</label>
-    <input
-      class="form-control"
-      autocomplete="off"
-      type="email"
-      [(ngModel)]="loginForm.email"
-      required
-      name="email"
-      email
-    />
-  </div>
-  <div>
-    <label>Pass</label>
-    <input
-      autocomplete="off"
-      type="password"
-      [(ngModel)]="loginForm.password"
-      required
-      name="password"
-    />
-  </div>
+    <div>
+        <label>email</label>
+        <input
+            class="form-control"
+            autocomplete="off"
+            type="email"
+            [(ngModel)]="loginForm.email"
+            required
+            name="email"
+            email
+        />
+    </div>
+    <div>
+        <label>Pass</label>
+        <input
+            autocomplete="off"
+            type="password"
+            [(ngModel)]="loginForm.password"
+            required
+            name="password"
+        />
+    </div>
 
-  <button type="submit">LogIn</button>
+    <button type="submit">LogIn</button>
 </form>
-<p>Today's item: {{ item }}</p>
+<p>{{ userData | json }}</p>
