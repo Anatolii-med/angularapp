@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angularapp';
-  email = '';
-  name = '';
-  password = '';
+  currentItem = 'Television';
+  //   Input();
 }

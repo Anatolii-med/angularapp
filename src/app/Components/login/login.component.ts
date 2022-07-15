@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-login ',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
@@ -18,6 +18,8 @@ export class LoginComponent implements OnInit {
   onSubmit(loginData: NgForm) {
     console.log(loginData.form.value);
   }
+
+  @Input() item = '';
 
   ngOnInit(): void {}
 }
