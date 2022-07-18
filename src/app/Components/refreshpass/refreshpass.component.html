@@ -1,22 +1,23 @@
 <p>refreshpass</p>
 <form
-  #refresh="ngForm"
-  (ngSubmit)="onSubmit(refresh)"
-  class="ng-pristine ng-untouched ng-valid"
-  novalidate=""
+    #refresh="ngForm"
+    (ngSubmit)="onSubmit(refresh)"
+    class="ng-pristine ng-untouched ng-valid"
+    novalidate=""
 >
-  <div>
-    <label>email</label>
-    <input
-      class="form-control"
-      autocomplete="off"
-      type="email"
-      [(ngModel)]="refreshData.email"
-      required
-      name="email"
-      email
-    />
-  </div>
+    <div>
+        <label>email</label>
+        <input
+            class="form-control"
+            autocomplete="off"
+            type="email"
+            [(ngModel)]="refreshData.email"
+            required
+            name="email"
+            email
+        />
+    </div>
 
-  <button [disabled]="refresh.invalid">refresh</button>
+    <button [disabled]="refresh.invalid">refresh</button>
 </form>
+<p>{{ userData | json }}</p>
