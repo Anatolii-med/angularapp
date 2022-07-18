@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ShareService } from '../../share.service';
 
@@ -12,20 +12,32 @@ export class LoginComponent implements OnInit {
         this.share.onClick.subscribe((response) => (this.userData = response));
     }
     loginForm: any = {
-        login: '',
+        email: '',
         password: '',
     };
 
-    userData = {};
+    userData: any = {
+        email: '',
+        login: '',
+        password: '',
+    };
 
     // onSubmit(loginData: NgForm) {
     //     console.log(loginData.form.value);
     // }
     onSubmit(loginData: NgForm) {
         console.log(this.userData);
+        if (this.loginForm.email === this.userData.email) {
+            console.log('first');
+            if (this.loginForm.password === this.userData.password) {
+                console.log('Congrats, login success');
+                return;
+            }
+        }
+        console.log('Wrong pass or email');
     }
 
-    item = this.loginForm;
-
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        this.userData = this.share.onLoad();
+    }
 }
