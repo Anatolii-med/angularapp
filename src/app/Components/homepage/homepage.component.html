@@ -1,2 +1,15 @@
 <p>Hi! this is my first Angular App!</p>
 <p>you may register, logIn or refresh your password</p>
+
+<div>
+    <div *ngFor="let item of array">
+        <div>
+            <h5>user</h5>
+            <!-- <div>{{ item | json }}</div> -->
+            <div>Name: {{ item.data.name }}</div>
+            <div>email: {{ item.data.email }}</div>
+            <div>pass: {{ item.data.password }}</div>
+            <div></div>
+        </div>
+    </div>
+</div>

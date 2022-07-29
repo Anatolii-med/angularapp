@@ -1,5 +1,15 @@
 import { Component, Output, Input } from '@angular/core';
-import { ShareService } from './share.service';
+import { ShareService } from './Services/share.service';
+
+import { Firestore, collectionData, collection } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+
+interface Item {
+    name: string;
+    email: string;
+    password: string;
+    id: string;
+}
 
 @Component({
     selector: 'app-root',
@@ -8,5 +18,9 @@ import { ShareService } from './share.service';
 })
 export class AppComponent {
     title = 'angularapp';
-    currentItem = 'Television';
+
+    userName: string = '';
+    userEmail: string = '';
+    userPassword: string = '';
+    userId: string = '';
 }

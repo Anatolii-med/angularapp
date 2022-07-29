@@ -1,14 +1,20 @@
 form {
-  width: 35%;
-  div {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
+    width: 35%;
+    div {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
 }
 
 input {
-  margin-left: 20px;
-  width: 60%;
+    margin-left: 20px;
+    width: 60%;
+}
+input.ng-touched.ng-invalid {
+    border: solid red 2px;
+}
+input.ng-touched.ng-valid {
+    border: solid green 2px;
 }

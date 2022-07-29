@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ShareService } from '../../share.service';
+import { ShareService } from '../../Services/share.service';
+import { CrudService } from './../../Services/crud.service';
 
 @Component({
     selector: 'app-login',
@@ -8,7 +9,7 @@ import { ShareService } from '../../share.service';
     styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-    constructor(private share: ShareService) {
+    constructor(private share: ShareService, public crudservice: CrudService) {
         this.share.onClick.subscribe((response) => (this.userData = response));
     }
     loginForm: any = {
@@ -21,12 +22,16 @@ export class LoginComponent implements OnInit {
         login: '',
         password: '',
     };
+    userFromData: any = {
+        email: '',
+        login: '',
+        password: '',
+    };
 
     // onSubmit(loginData: NgForm) {
     //     console.log(loginData.form.value);
     // }
     onSubmit(loginData: NgForm) {
-        console.log(this.userData);
         if (this.loginForm.email === this.userData.email) {
             console.log('first');
             if (this.loginForm.password === this.userData.password) {
@@ -34,7 +39,9 @@ export class LoginComponent implements OnInit {
                 return;
             }
         }
-        console.log('Wrong pass or email');
+        // console.log('Wrong pass or email');
+
+        this.crudservice.getUser(this.loginForm);
     }
 
     ngOnInit(): void {

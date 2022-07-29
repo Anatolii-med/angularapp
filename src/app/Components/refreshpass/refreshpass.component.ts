@@ -1,6 +1,6 @@
 import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { ShareService } from '../../share.service';
+import { ShareService } from '../../Services/share.service';
 
 @Component({
     selector: 'app-refreshpass',

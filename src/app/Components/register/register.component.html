@@ -1,7 +1,6 @@
 <p>register</p>
 <form
     #register="ngForm"
-    (ngSubmit)="onSubmit(register)"
     class="ng-pristine ng-untouched ng-valid"
     novalidate=""
 >
@@ -11,7 +10,7 @@
             class="form-control"
             autocomplete="off"
             type="email"
-            [(ngModel)]="registerForm.email"
+            [(ngModel)]="userEmail"
             required
             name="email"
             email
@@ -23,7 +22,7 @@
             class="form-control"
             autocomplete="off"
             type="text"
-            [(ngModel)]="registerForm.login"
+            [(ngModel)]="userName"
             required
             name="login"
         />
@@ -34,12 +33,19 @@
             class="form-control"
             autocomplete="off"
             type="password"
-            [(ngModel)]="registerForm.password"
+            [(ngModel)]="userPassword"
             required
             name="password"
             minlength="8"
         />
     </div>
 
-    <button type="submit" [disabled]="register.invalid">Register</button>
+    <button
+        type="submit"
+        (click)="CreateUser()"
+        [disabled]="!userName || !userEmail || !userPassword"
+    >
+        Register
+    </button>
 </form>
+<p>{{ message }}</p>
