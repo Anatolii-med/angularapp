@@ -7,6 +7,8 @@ import {
     AngularFireList,
     AngularFireObject,
 } from '@angular/fire/compat/database';
+import * as firebase from 'firebase/analytics';
+
 @Injectable({
     providedIn: 'root',
 })
@@ -15,6 +17,7 @@ export class CrudService {
     userRef!: AngularFireObject<any>;
     loginUser!: any;
     loginMessage!: string;
+    currentUser!: { name: string; password: string; email: string };
 
     constructor(public fireservices: AngularFirestore) {}
 
@@ -34,11 +37,21 @@ export class CrudService {
                 data.forEach((el) => {
                     this.loginUser = el.data();
                     if (this.loginUser.password === id.password) {
+                        console.log(
+                            'CrudService ~ data.forEach ~ this.currentUser',
+                            this.currentUser
+                        );
                         console.log(`${this.loginUser.name}! welcome`);
-                        return;
+                        const analytics = firebase.getAnalytics();
+                        firebase.logEvent(analytics, 'login-event', {
+                            useremail: `${this.loginUser.email}`,
+                        });
                     }
-                    console.log('wrong pass or email');
                 })
             );
+    }
+
+    currentUserName() {
+        return this.currentUser.name;
     }
 }

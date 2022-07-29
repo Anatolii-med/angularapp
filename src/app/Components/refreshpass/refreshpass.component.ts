@@ -1,6 +1,7 @@
 import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ShareService } from '../../Services/share.service';
+import * as firebase from 'firebase/analytics';
 
 @Component({
     selector: 'app-refreshpass',
@@ -17,11 +18,12 @@ export class RefreshpassComponent implements OnInit {
 
     userData: any = {};
     onSubmit(data: NgForm) {
-        if (this.refreshData.email === this.userData.email) {
-            console.log('refreshPass');
-            return;
-        }
-        console.log('no user in database');
+        console.log('refreshPass');
+        const analytics = firebase.getAnalytics();
+        firebase.logEvent(analytics, 'refreshPass', {
+            useremail: `${this.refreshData.email}`,
+        });
+        return;
     }
 
     ngOnInit(): void {

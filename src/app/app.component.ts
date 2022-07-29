@@ -1,5 +1,7 @@
-import { Component, Output, Input } from '@angular/core';
+import { Component, AfterViewInit, Output, Input } from '@angular/core';
 import { ShareService } from './Services/share.service';
+
+import * as firebase from 'firebase/analytics';
 
 import { Firestore, collectionData, collection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
@@ -16,11 +18,13 @@ interface Item {
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
     title = 'angularapp';
 
     userName: string = '';
     userEmail: string = '';
     userPassword: string = '';
     userId: string = '';
+
+    ngAfterViewInit() {}
 }

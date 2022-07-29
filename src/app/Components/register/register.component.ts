@@ -2,7 +2,7 @@ import { CrudService } from './../../Services/crud.service';
 import { Component, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ShareService } from '../../Services/share.service';
-
+import * as firebase from 'firebase/analytics';
 @Component({
     selector: 'app-register',
     templateUrl: './register.component.html',
@@ -32,10 +32,15 @@ export class RegisterComponent {
         this.crudservice
             .createNewUser(Record)
             .then((res) => {
+                const analytics = firebase.getAnalytics();
+                firebase.logEvent(analytics, 'register-event', {
+                    firsttimeuser: true,
+                    useremail: `${this.userEmail}`,
+                    username: `${this.userName}`,
+                });
                 this.userName = '';
                 this.userEmail = '';
                 this.userPassword = '';
-                console.log(res);
                 this.message = 'User saved';
             })
             .catch((error) => {
