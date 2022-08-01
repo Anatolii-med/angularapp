@@ -19,7 +19,12 @@ import { HomeComponent } from './Components/homepage/homepage.component';
 import { TestcomponentComponent } from './Components/testcomponent/testcomponent.component';
 import { ShareService } from './Services/share.service';
 
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+
 import { CrudService } from './Services/crud.service';
+
+import { AuthService } from './Services/auth.service';
 
 const firebaseConfig = {
     apiKey: 'AIzaSyClD21a4Yb_O2e__nm-sqI_LsdocEieF54',
@@ -45,12 +50,14 @@ const analytics = getAnalytics(app);
     imports: [
         BrowserModule,
         AppRoutingModule,
+        AngularFireStorageModule,
+        AngularFireAuthModule,
         FormsModule,
         AngularFireModule.initializeApp(environment.firebaseConfig),
         AngularFireDatabaseModule,
         AngularFirestoreModule,
     ],
-    providers: [ShareService, CrudService],
+    providers: [ShareService, CrudService, AuthService],
     bootstrap: [AppComponent],
 })
 export class AppModule {}
