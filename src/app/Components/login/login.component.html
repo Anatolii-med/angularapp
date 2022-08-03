@@ -1,34 +1,35 @@
-<p>login</p>
-<form
-    #login="ngForm"
-    class="ng-pristine ng-untouched ng-valid"
-    novalidate=""
-    (ngSubmit)="onSubmit(login)"
->
-    <div>
-        <label>email</label>
-        <input
-            class="form-control"
-            autocomplete="off"
-            type="email"
-            [(ngModel)]="loginForm.email"
-            required
-            name="email"
-            email
-        />
-    </div>
-    <div>
-        <label>Pass</label>
-        <input
-            autocomplete="off"
-            type="password"
-            [(ngModel)]="loginForm.password"
-            required
-            name="password"
-        />
-    </div>
+<h3>Sign In</h3>
+<div class="displayTable">
+    <div class="displayTableCell">
+        <div class="authBlock">
+            <div class="formGroup">
+                <input
+                    type="text"
+                    class="formControl"
+                    placeholder="Username"
+                    #userName
+                    required
+                />
+            </div>
 
-    <button type="submit">LogIn</button>
-</form>
+            <div class="formGroup">
+                <input
+                    type="password"
+                    class="formControl"
+                    placeholder="Password"
+                    #userPassword
+                    required
+                />
+            </div>
 
-<p>{{ message }}</p>
+            <div class="formGroup">
+                <input
+                    type="button"
+                    class="btn btnPrimary"
+                    value="Log in"
+                    (click)="authLogin(userName.value, userPassword.value)"
+                />
+            </div>
+        </div>
+    </div>
+</div>

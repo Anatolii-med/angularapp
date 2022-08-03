@@ -37,7 +37,7 @@ export class AuthService {
             .signInWithEmailAndPassword(email, password)
             .then((result) => {
                 this.ngZone.run(() => {
-                    this.router.navigate(['dashboard']);
+                    this.router.navigate(['']);
                 });
                 this.SetUserData(result.user);
             })
@@ -63,9 +63,7 @@ export class AuthService {
     SendVerificationMail() {
         return this.afAuth.currentUser
             .then((u: any) => u.sendEmailVerification())
-            .then(() => {
-                this.router.navigate(['verify-email-address']);
-            });
+            .then(() => {});
     }
     // Reset Forggot password
     ForgotPassword(passwordResetEmail: string) {
@@ -88,7 +86,7 @@ export class AuthService {
         return this.AuthLogin(new auth.GoogleAuthProvider()).then(
             (res: any) => {
                 if (res) {
-                    this.router.navigate(['dashboard']);
+                    this.router.navigate(['test']);
                 }
             }
         );
@@ -99,7 +97,7 @@ export class AuthService {
             .signInWithPopup(provider)
             .then((result) => {
                 this.ngZone.run(() => {
-                    this.router.navigate(['dashboard']);
+                    this.router.navigate(['refreshpass']);
                 });
                 this.SetUserData(result.user);
             })

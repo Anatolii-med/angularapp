@@ -1,23 +1,29 @@
-<p>refreshpass</p>
-<form
-    #refresh="ngForm"
-    (ngSubmit)="onSubmit(refresh)"
-    class="ng-pristine ng-untouched ng-valid"
-    novalidate=""
->
-    <div>
-        <label>email</label>
-        <input
-            class="form-control"
-            autocomplete="off"
-            type="email"
-            [(ngModel)]="refreshData.email"
-            required
-            name="email"
-            email
-        />
-    </div>
+<h3>Reset Password</h3>
+<div class="displayTable">
+    <div class="displayTableCell">
+        <div class="authBlock">
+            <p class="text-center">
+                Please enter your email address to request a password reset.
+            </p>
 
-    <button [disabled]="refresh.invalid">refresh</button>
-</form>
-<p>{{ userData | json }}</p>
+            <div class="formGroup">
+                <input
+                    type="email"
+                    class="formControl"
+                    placeholder="Email Address"
+                    #passwordResetEmail
+                    required
+                />
+            </div>
+
+            <div class="formGroup">
+                <input
+                    type="submit"
+                    class="btn btnPrimary"
+                    value="Reset Password"
+                    (click)="authOnPassForgot(passwordResetEmail.value)"
+                />
+            </div>
+        </div>
+    </div>
+</div>
