@@ -1,6 +1,4 @@
-import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { ShareService } from '../../Services/share.service';
 import * as firebase from 'firebase/analytics';
 import { AuthService } from '../../Services/auth.service';
 @Component({

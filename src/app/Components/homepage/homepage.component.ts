@@ -9,15 +9,14 @@ import { CrudService } from './../../Services/crud.service';
 export class HomeComponent implements OnInit {
     constructor(public crudservice: CrudService) {}
     user: any;
-    array!: [
-        {
-            data: {
-                name: any;
-                email: any;
-                password: any;
-            };
-        }
-    ];
+    array: {
+        id: string;
+        data: {
+            name: string;
+            email: string;
+            password: string;
+        };
+    }[] = [];
     ngOnInit(): any {
         this.crudservice.getAll().subscribe((res) => {
             this.user = res.map((e) => {

@@ -1,5 +1,4 @@
 import { Component, AfterViewInit, Output, Input } from '@angular/core';
-import { ShareService } from './Services/share.service';
 
 import * as firebase from 'firebase/analytics';
 

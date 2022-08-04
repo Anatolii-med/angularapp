@@ -17,7 +17,6 @@ import { LoginComponent } from './Components/login/login.component';
 import { RefreshpassComponent } from './Components/refreshpass/refreshpass.component';
 import { HomeComponent } from './Components/homepage/homepage.component';
 import { TestcomponentComponent } from './Components/testcomponent/testcomponent.component';
-import { ShareService } from './Services/share.service';
 
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
@@ -57,7 +56,7 @@ const analytics = getAnalytics(app);
         AngularFireDatabaseModule,
         AngularFirestoreModule,
     ],
-    providers: [ShareService, CrudService, AuthService],
+    providers: [CrudService, AuthService],
     bootstrap: [AppComponent],
 })
 export class AppModule {}
