@@ -9,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class TestcomponentComponent implements OnInit {
     constructor(public authService: AuthService) {}
 
-    user = this.authService.currentUser?.name;
+    index = this.authService.currentUser.email.indexOf('@');
+    user = this.authService.currentUser.email.slice(0, this.index);
 
     ngOnInit(): void {}
 }

@@ -15,6 +15,9 @@
     gap: 40px;
     align-items: center;
 }
+button {
+    margin-left: auto;
+}
 a.active:not(:nth-child(1)) {
     border: 1px solid red;
 }

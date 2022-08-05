@@ -28,13 +28,14 @@
                 >refreshpass</a
             >
         </div>
-        <a
-            routerLink="/test"
-            routerLinkActive="active"
-            ariaCurrentWhenActive="page"
-            >test</a
-        >
+
         <div *ngIf="authService.currentUser">
+            <a
+                routerLink="/test"
+                routerLinkActive="active"
+                ariaCurrentWhenActive="page"
+                >test</a
+            >
             <button (click)="authLogOut()">logOut</button>
         </div>
     </div>
