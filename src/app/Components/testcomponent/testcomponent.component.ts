@@ -1,21 +1,15 @@
+import { AuthService } from '../../Services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'app-testcomponent',
-  templateUrl: './testcomponent.component.html',
-  styleUrls: ['./testcomponent.component.scss'],
+    selector: 'app-testcomponent',
+    templateUrl: './testcomponent.component.html',
+    styleUrls: ['./testcomponent.component.scss'],
 })
 export class TestcomponentComponent implements OnInit {
-  constructor() {}
+    constructor(public authService: AuthService) {}
 
-  ngOnInit(): void {}
+    user = this.authService.currentUser?.name;
 
-  name: string = '';
-  email: string = '';
-  phone: string = '';
-
-  onSubmit(form: NgForm) {
-    console.log(form);
-  }
+    ngOnInit(): void {}
 }

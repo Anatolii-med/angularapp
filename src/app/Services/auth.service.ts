@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
     providedIn: 'root',
 })
 export class AuthService {
+    currentUser: any = JSON.parse(localStorage.getItem('user')!);
+
     userData: any; // Save logged in user data
     constructor(
         public afs: AngularFirestore, // Inject Firestore service
@@ -25,6 +27,7 @@ export class AuthService {
                 this.userData = user;
                 localStorage.setItem('user', JSON.stringify(this.userData));
                 JSON.parse(localStorage.getItem('user')!);
+                this.currentUser = JSON.parse(localStorage.getItem('user')!);
             } else {
                 localStorage.setItem('user', 'null');
                 JSON.parse(localStorage.getItem('user')!);
@@ -37,12 +40,13 @@ export class AuthService {
             .signInWithEmailAndPassword(email, password)
             .then((result) => {
                 this.ngZone.run(() => {
-                    this.router.navigate(['']);
+                    this.router.navigate(['test']);
                 });
                 this.SetUserData(result.user);
             })
             .catch((error) => {
                 window.alert(error.message);
+                this.router.navigate(['refreshpass']);
             });
     }
     // Sign up with email/password
@@ -54,6 +58,7 @@ export class AuthService {
         up and returns promise */
                 this.SendVerificationMail();
                 this.SetUserData(result.user);
+                this.router.navigate(['test']);
             })
             .catch((error) => {
                 window.alert(error.message);
@@ -97,17 +102,20 @@ export class AuthService {
             .signInWithPopup(provider)
             .then((result) => {
                 this.ngZone.run(() => {
-                    this.router.navigate(['refreshpass']);
+                    this.router.navigate(['test']);
                 });
                 this.SetUserData(result.user);
             })
             .catch((error) => {
+                this.router.navigate(['refreshpass']);
                 window.alert(error);
             });
     }
     /* Setting up user data when sign in with username/password,
-  sign up with username/password and sign in with social auth
-  provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
+    sign up with username/password and sign in with social auth
+    provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
+    usrDat: {} = {};
+
     SetUserData(user: any) {
         const userRef: AngularFirestoreDocument<any> = this.afs.doc(
             `users/${user.uid}`
@@ -127,7 +135,8 @@ export class AuthService {
     SignOut() {
         return this.afAuth.signOut().then(() => {
             localStorage.removeItem('user');
-            this.router.navigate(['sign-in']);
+            this.router.navigate(['login']);
+            this.currentUser = null;
         });
     }
 }

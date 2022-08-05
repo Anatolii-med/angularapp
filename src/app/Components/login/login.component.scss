@@ -1,4 +1,4 @@
-form {
+.authBlock {
     width: 35%;
     div {
         display: flex;
@@ -11,10 +11,15 @@ form {
 input {
     margin-left: 20px;
     width: 60%;
+    text-align: center;
 }
-input.ng-touched.ng-invalid {
-    border: solid red 2px;
+button {
+    margin-left: 20px;
+    width: 62%;
 }
-input.ng-touched.ng-valid {
-    border: solid green 2px;
-}
+// input.ng-touched.ng-invalid {
+//     border: solid red 2px;
+// }
+// input.ng-touched.ng-valid {
+//     border: solid green 2px;
+// }
