@@ -27,7 +27,7 @@ export class AppComponent implements AfterViewInit {
         const user = JSON.parse(localStorage.getItem('user')!);
         const analytics = firebase.getAnalytics();
         firebase.logEvent(analytics, 'loginOut', {
-            userLogoutEmail: `${user.providerData.email}`,
+            userLogoutEmail: `${user.providerData[0].email}`,
         });
         this.authService.SignOut();
     }
