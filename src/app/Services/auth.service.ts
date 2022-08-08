@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
     providedIn: 'root',
 })
 export class AuthService {
-    currentUser: any = JSON.parse(localStorage.getItem('user')!);
+    currentUser: any = '';
 
     userData: any; // Save logged in user data
     constructor(
@@ -39,10 +39,9 @@ export class AuthService {
         return this.afAuth
             .signInWithEmailAndPassword(email, password)
             .then((result) => {
-                this.ngZone.run(() => {
-                    this.router.navigate(['test']);
-                });
+                this.ngZone.run(() => {});
                 this.SetUserData(result.user);
+                this.router.navigate(['test']);
             })
             .catch((error) => {
                 window.alert(error.message);
@@ -86,16 +85,7 @@ export class AuthService {
         const user = JSON.parse(localStorage.getItem('user')!);
         return user !== null && user.emailVerified !== false ? true : false;
     }
-    // Sign in with Google
-    GoogleAuth() {
-        return this.AuthLogin(new auth.GoogleAuthProvider()).then(
-            (res: any) => {
-                if (res) {
-                    this.router.navigate(['test']);
-                }
-            }
-        );
-    }
+
     // Auth logic to run auth providers
     AuthLogin(provider: any) {
         return this.afAuth

@@ -1,5 +1,10 @@
 import { AuthService } from '../../Services/auth.service';
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import {
+    AngularFirestore,
+    AngularFirestoreDocument,
+} from '@angular/fire/compat/firestore';
 
 @Component({
     selector: 'app-testcomponent',
@@ -7,10 +12,21 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./testcomponent.component.scss'],
 })
 export class TestcomponentComponent implements OnInit {
-    constructor(public authService: AuthService) {}
+    constructor(
+        public authService: AuthService,
+        public afs: AngularFirestore,
+        public afAuth: AngularFireAuth
+    ) {}
 
-    index = this.authService.currentUser.email.indexOf('@');
-    user = this.authService.currentUser.email.slice(0, this.index);
+    usersArray: any;
 
-    ngOnInit(): void {}
+    currentUser: any;
+    ngOnInit(): void {
+        this.afAuth.authState.subscribe((user) => {
+            if (user) {
+                let index = user.email?.indexOf('@');
+                this.currentUser = user.email?.slice(0, index);
+            }
+        });
+    }
 }
