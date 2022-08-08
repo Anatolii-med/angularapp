@@ -24,6 +24,10 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { CrudService } from './Services/crud.service';
 
 import { AuthService } from './Services/auth.service';
+import { TestGuard } from './Components/testcomponent/test.guard';
+import { LoginGuard } from './Components/login/login.guard';
+import { RegisterGuard } from './Components/register/register.guard';
+import { RefreshGuard } from './Components/refreshpass/refresh.guard';
 
 const firebaseConfig = {
     apiKey: 'AIzaSyClD21a4Yb_O2e__nm-sqI_LsdocEieF54',
@@ -56,7 +60,14 @@ const analytics = getAnalytics(app);
         AngularFireDatabaseModule,
         AngularFirestoreModule,
     ],
-    providers: [CrudService, AuthService],
+    providers: [
+        CrudService,
+        AuthService,
+        TestGuard,
+        LoginGuard,
+        RegisterGuard,
+        RefreshGuard,
+    ],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -8,36 +8,38 @@
             <p class="logo">hello</p></a
         >
 
-        <div *ngIf="!authService.currentUser">
-            <a
-                routerLink="/register"
-                routerLinkActive="active"
-                ariaCurrentWhenActive="page"
-                >register</a
-            >
-            <a
-                routerLink="/login"
-                routerLinkActive="active"
-                ariaCurrentWhenActive="page"
-                >login</a
-            >
-            <a
-                routerLink="/refreshpass"
-                routerLinkActive="active"
-                ariaCurrentWhenActive="page"
-                >refreshpass</a
-            >
-        </div>
+        <a
+            *ngIf="!authService.currentUser"
+            routerLink="/register"
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+            >register</a
+        >
+        <a
+            *ngIf="!authService.currentUser"
+            routerLink="/login"
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+            >login</a
+        >
+        <a
+            *ngIf="!authService.currentUser"
+            routerLink="/refreshpass"
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+            >refreshpass</a
+        >
 
-        <div *ngIf="authService.currentUser">
-            <a
-                routerLink="/test"
-                routerLinkActive="active"
-                ariaCurrentWhenActive="page"
-                >test</a
-            >
-            <button (click)="authLogOut()">logOut</button>
-        </div>
+        <a
+            *ngIf="authService.currentUser"
+            routerLink="/test"
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+            >test</a
+        >
+        <button *ngIf="authService.currentUser" (click)="authLogOut()">
+            logOut
+        </button>
     </div>
 
     <router-outlet> </router-outlet>

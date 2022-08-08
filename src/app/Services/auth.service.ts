@@ -41,7 +41,7 @@ export class AuthService {
             .then((result) => {
                 this.ngZone.run(() => {});
                 this.SetUserData(result.user);
-                this.router.navigate(['test']);
+                this.router.navigate(['/']);
             })
             .catch((error) => {
                 window.alert(error.message);
@@ -57,7 +57,7 @@ export class AuthService {
         up and returns promise */
                 this.SendVerificationMail();
                 this.SetUserData(result.user);
-                this.router.navigate(['test']);
+                this.router.navigate(['/']);
             })
             .catch((error) => {
                 window.alert(error.message);
@@ -83,7 +83,8 @@ export class AuthService {
     // Returns true when user is looged in and email is verified
     get isLoggedIn(): boolean {
         const user = JSON.parse(localStorage.getItem('user')!);
-        return user !== null && user.emailVerified !== false ? true : false;
+        return user !== null ? true : false;
+        // return user !== null && user.emailVerified !== false ? true : false;
     }
 
     // Auth logic to run auth providers
