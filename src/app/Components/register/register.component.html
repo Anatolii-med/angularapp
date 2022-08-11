@@ -1,6 +1,9 @@
 <h3>Sign Up</h3>
 
-<app-register-form (formData)="authRegister($event)"></app-register-form>
+<app-register-form
+    (formData)="authRegister($event)"
+    [parentMessage]="message"
+></app-register-form>
 
 <div class="displayTable">
     <div class="displayTableCell"></div>

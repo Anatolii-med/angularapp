@@ -1,4 +1,4 @@
-import { Component, Output } from '@angular/core';
+import { Component, Output, Input } from '@angular/core';
 import * as firebase from 'firebase/analytics';
 
 import { AuthService } from '../../Services/auth.service';
@@ -10,6 +10,8 @@ import { AuthService } from '../../Services/auth.service';
 })
 export class RegisterComponent {
     constructor(public authService: AuthService) {}
+
+    message = 'Hi, this is message from parent component';
 
     authRegister(data: any) {
         this.authService.SignUp(data.email, data.password);

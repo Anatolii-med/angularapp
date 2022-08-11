@@ -1,5 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
+
 @Component({
     selector: 'app-register-form',
     templateUrl: './register-form.component.html',
@@ -7,10 +8,13 @@ import { NgForm } from '@angular/forms';
 })
 export class RegisterFormComponent implements OnInit {
     @Output() formData = new EventEmitter<object>();
+    @Input() parentMessage = '';
+
     data: any = {
         email: '',
         password: '',
     };
+
     constructor() {}
 
     onFormSubmit(email: string, pwd: string) {}
