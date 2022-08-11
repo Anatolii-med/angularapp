@@ -10,6 +10,8 @@ import { AuthService } from '../../Services/auth.service';
 export class LoginComponent implements OnInit {
     constructor(public authService: AuthService) {}
 
+    currentItem = 'this string from perent component';
+
     authLogin(email: string, pass: string) {
         this.authService.SignIn(email, pass);
         const analytics = firebase.getAnalytics();
