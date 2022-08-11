@@ -10,13 +10,13 @@ import { AuthService } from '../../Services/auth.service';
 export class LoginComponent implements OnInit {
     constructor(public authService: AuthService) {}
 
-    currentItem = 'this string from perent component';
+    text = 'this string from perent component';
 
-    authLogin(email: string, pass: string) {
-        this.authService.SignIn(email, pass);
+    authLogin(obj: any) {
+        this.authService.SignIn(obj.email, obj.pass);
         const analytics = firebase.getAnalytics();
         firebase.logEvent(analytics, 'login-event', {
-            userLoginEmail: `${email}`,
+            userLoginEmail: `${obj.email}`,
         });
         console.log('login');
     }

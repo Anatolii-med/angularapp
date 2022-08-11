@@ -1,37 +1,9 @@
 <h3>Sign In</h3>
 <div class="displayTable">
     <div class="displayTableCell">
-        <div class="authBlock">
-            <div class="formGroup">
-                <input
-                    type="text"
-                    class="formControl"
-                    placeholder="Username"
-                    #userName
-                    required
-                />
-            </div>
-
-            <div class="formGroup">
-                <input
-                    type="password"
-                    class="formControl"
-                    placeholder="Password"
-                    #userPassword
-                    required
-                />
-            </div>
-
-            <div class="formGroup">
-                <button
-                    type="button"
-                    class="btn btnPrimary"
-                    value="Log in"
-                    (click)="authLogin(userName.value, userPassword.value)"
-                >
-                    Log in
-                </button>
-            </div>
-        </div>
+        <app-login-form
+            [parentString]="text"
+            (formEvent)="authLogin($event)"
+        ></app-login-form>
     </div>
 </div>

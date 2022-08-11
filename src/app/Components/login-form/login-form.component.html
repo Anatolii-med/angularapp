@@ -1,0 +1,44 @@
+<p>login-form component</p>
+<p>
+    {{ parentString }}
+</p>
+
+<form>
+    <div class="authBlock">
+        <div class="formGroup">
+            <input
+                type="text"
+                class="formControl"
+                autocomplete="off"
+                type="email"
+                placeholder="UserEmail"
+                #userEmail
+                required
+            />
+        </div>
+
+        <div class="formGroup">
+            <input
+                type="password"
+                autocomplete="off"
+                class="formControl"
+                placeholder="Password"
+                #userPassword
+                required
+                minlength="8"
+            />
+        </div>
+
+        <div class="formGroup">
+            <button
+                type="button"
+                class="btn btnPrimary"
+                value="Log in"
+                [disabled]="!userEmail || !userPassword"
+                (click)="onFormSubmit(userEmail.value, userPassword.value)"
+            >
+                login
+            </button>
+        </div>
+    </div>
+</form>

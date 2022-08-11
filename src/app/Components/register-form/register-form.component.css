@@ -1,0 +1,26 @@
+.authBlock {
+  width: 35%;
+}
+.authBlock div {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+input {
+  width: 60%;
+  text-align: center;
+}
+
+button {
+  width: 62%;
+}
+
+input.ng-touched.ng-invalid {
+  border: solid red 2px;
+}
+
+input.ng-touched.ng-valid {
+  border: solid green 2px;
+}/*# sourceMappingURL=register-form.component.css.map */

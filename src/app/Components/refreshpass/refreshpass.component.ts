@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase/analytics';
 import { AuthService } from '../../Services/auth.service';
+
 @Component({
     selector: 'app-refreshpass',
     templateUrl: './refreshpass.component.html',

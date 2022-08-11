@@ -10,10 +10,15 @@
   color: red;
 }
 
-.nav {
+.nav,
+.nav > div {
   display: flex;
   gap: 40px;
   align-items: center;
+}
+
+button {
+  margin-left: auto;
 }
 
 a.active:not(:nth-child(1)) {

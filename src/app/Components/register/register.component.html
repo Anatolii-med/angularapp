@@ -1,37 +1,7 @@
 <h3>Sign Up</h3>
+
+<app-register-form (formData)="authRegister($event)"></app-register-form>
+
 <div class="displayTable">
-    <div class="displayTableCell">
-        <div class="authBlock">
-            <div class="formGroup">
-                <input
-                    type="email"
-                    class="formControl"
-                    placeholder="Email Address"
-                    #userEmail
-                    required
-                />
-            </div>
-
-            <div class="formGroup">
-                <input
-                    type="password"
-                    class="formControl"
-                    placeholder="Password"
-                    #userPwd
-                    required
-                />
-            </div>
-
-            <div class="formGroup">
-                <button
-                    type="button"
-                    class="btn btnPrimary"
-                    value="Sign Up"
-                    (click)="authRegister(userEmail.value, userPwd.value)"
-                >
-                    Sign Up
-                </button>
-            </div>
-        </div>
-    </div>
+    <div class="displayTableCell"></div>
 </div>

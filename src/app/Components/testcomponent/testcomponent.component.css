@@ -4,4 +4,25 @@ input.ng-touched.ng-invalid {
 
 input.ng-touched.ng-valid {
   border: solid green 2px;
+}
+
+.authBlock {
+  width: 35%;
+}
+.authBlock div {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+input {
+  margin-left: 20px;
+  width: 60%;
+  text-align: center;
+}
+
+button {
+  margin-left: 20px;
+  width: 62%;
 }/*# sourceMappingURL=testcomponent.component.css.map */

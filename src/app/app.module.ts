@@ -28,6 +28,9 @@ import { TestGuard } from './Components/testcomponent/test.guard';
 import { LoginGuard } from './Components/login/login.guard';
 import { RegisterGuard } from './Components/register/register.guard';
 import { RefreshGuard } from './Components/refreshpass/refresh.guard';
+import { LoginFormComponent } from './Components/login-form/login-form.component';
+import { RegisterFormComponent } from './Components/register-form/register-form.component';
+import { RefreshFormComponent } from './Components/refresh-form/refresh-form.component';
 
 const firebaseConfig = {
     apiKey: 'AIzaSyClD21a4Yb_O2e__nm-sqI_LsdocEieF54',
@@ -49,6 +52,9 @@ const analytics = getAnalytics(app);
         RefreshpassComponent,
         HomeComponent,
         TestcomponentComponent,
+        LoginFormComponent,
+        RegisterFormComponent,
+        RefreshFormComponent,
     ],
     imports: [
         BrowserModule,

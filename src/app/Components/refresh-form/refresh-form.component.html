@@ -1,0 +1,29 @@
+<p>refresh-form component</p>
+
+<div class="authBlock">
+    <p class="text-center">
+        Please enter your email address to request a password reset.
+    </p>
+    <form>
+        <div class="formGroup">
+            <input
+                type="email"
+                class="formControl"
+                placeholder="Email Address"
+                #passwordResetEmail
+                required
+            />
+        </div>
+
+        <div class="formGroup">
+            <button
+                type="submit"
+                class="btn btnPrimary"
+                value="Reset Password"
+                (click)="onFormSubmit(passwordResetEmail.value)"
+            >
+                Reset Password
+            </button>
+        </div>
+    </form>
+</div>
