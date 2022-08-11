@@ -11,13 +11,13 @@ import { AuthService } from '../../Services/auth.service';
 export class RegisterComponent {
     constructor(public authService: AuthService) {}
 
-    authRegister(obj: any) {
-        this.authService.SignUp(obj.email, obj.pass);
+    authRegister(data: any) {
+        this.authService.SignUp(data.email, data.password);
         const analytics = firebase.getAnalytics();
         firebase.logEvent(analytics, 'register-event', {
             firsttimeuser: true,
-            userRegisterEmail: `${obj.email}`,
+            userRegisterEmail: `${data.email}`,
         });
-        console.log('registered: ', obj.email, obj.pass);
+        console.log('registered: ', data.email, data.password);
     }
 }

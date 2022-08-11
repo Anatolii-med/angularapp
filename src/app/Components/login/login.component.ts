@@ -12,13 +12,13 @@ export class LoginComponent implements OnInit {
 
     text = 'this string from perent component';
 
-    authLogin(obj: any) {
-        this.authService.SignIn(obj.email, obj.pass);
+    authLogin(data: any) {
+        this.authService.SignIn(data.email, data.password);
         const analytics = firebase.getAnalytics();
         firebase.logEvent(analytics, 'login-event', {
-            userLoginEmail: `${obj.email}`,
+            userLoginEmail: `${data.email}`,
         });
-        console.log('login');
+        console.log('login', data.email, data.password);
     }
 
     ngOnInit(): void {}

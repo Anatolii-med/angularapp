@@ -4,15 +4,18 @@
     #register="ngForm"
     class="ng-pristine ng-untouched ng-valid"
     novalidate=""
+    (ngSubmit)="onSubmit(register)"
 >
     <div class="authBlock">
         <div class="formGroup">
             <input
                 type="email"
                 class="formControl"
+                name="email"
                 placeholder="Email Address"
                 #userEmail
                 required
+                [(ngModel)]="data.email"
             />
         </div>
 
@@ -23,16 +26,13 @@
                 placeholder="Password"
                 #userPwd
                 required
+                name="password"
+                [(ngModel)]="data.password"
             />
         </div>
 
         <div class="formGroup">
-            <button
-                type="button"
-                class="btn btnPrimary"
-                value="Sign Up"
-                (click)="onFormSubmit(userEmail.value, userPwd.value)"
-            >
+            <button type="submit" class="btn btnPrimary" value="Sign Up">
                 Sign Up
             </button>
         </div>

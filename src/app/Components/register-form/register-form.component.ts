@@ -7,11 +7,17 @@ import { NgForm } from '@angular/forms';
 })
 export class RegisterFormComponent implements OnInit {
     @Output() formData = new EventEmitter<object>();
-
+    data: any = {
+        email: '',
+        password: '',
+    };
     constructor() {}
 
-    onFormSubmit(email: string, pwd: string) {
-        this.formData.emit({ email: email, pass: pwd });
+    onFormSubmit(email: string, pwd: string) {}
+
+    onSubmit(data: NgForm) {
+        console.log(this.data);
+        this.formData.emit(this.data);
     }
 
     ngOnInit(): void {}

@@ -3,7 +3,12 @@
     {{ parentString }}
 </p>
 
-<form>
+<form
+    #login="ngForm"
+    class="ng-pristine ng-untouched ng-valid"
+    novalidate=""
+    (ngSubmit)="onSubmit(login)"
+>
     <div class="authBlock">
         <div class="formGroup">
             <input
@@ -13,7 +18,9 @@
                 type="email"
                 placeholder="UserEmail"
                 #userEmail
+                name="email"
                 required
+                [(ngModel)]="data.email"
             />
         </div>
 
@@ -25,17 +32,18 @@
                 placeholder="Password"
                 #userPassword
                 required
+                name="password"
                 minlength="8"
+                [(ngModel)]="data.password"
             />
         </div>
 
         <div class="formGroup">
             <button
-                type="button"
+                type="submit"
                 class="btn btnPrimary"
                 value="Log in"
                 [disabled]="!userEmail || !userPassword"
-                (click)="onFormSubmit(userEmail.value, userPassword.value)"
             >
                 login
             </button>
